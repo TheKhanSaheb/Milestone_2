@@ -12,4 +12,6 @@ const config = {
     refresh_secret: process.env.JWT_REFRESH_SECRET as string
 }
 
+
 export default config
+
