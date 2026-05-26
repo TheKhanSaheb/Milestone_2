@@ -17,8 +17,8 @@ export const initDB = async () => {
                 password TEXT NOT NULL,
 
                 role VARCHAR(20)
-                DEFAULT 'CONTRIBUTOR'
-                CHECK(role IN ('CONTRIBUTOR','MAINTAINER')),
+                DEFAULT 'contributor'
+                CHECK(role IN ('contributor','maintainer')),
 
                 created_at TIMESTAMP DEFAULT NOW(),
                 updated_at TIMESTAMP DEFAULT NOW()
@@ -30,30 +30,27 @@ export const initDB = async () => {
             CREATE TABLE IF NOT EXISTS issues(
                 id SERIAL PRIMARY KEY,
 
-                title VARCHAR(255) NOT NULL,
+                title VARCHAR(150) NOT NULL,
                 description TEXT NOT NULL,
 
                 type VARCHAR(20)
                 NOT NULL
-                CHECK (type IN ('Bug','Feature_Request')),
+                CHECK (type IN ('bug','feature_request')),
 
                 status VARCHAR(20)
-                DEFAULT 'Open'
-                CHECK (status IN ('Open','In_Progress','Resolved')),
+                DEFAULT 'open'
+                CHECK (status IN ('open','in_progress','resolved')),
 
-                reporter_id INTEGER
-                REFERENCES users(id)
-                ON DELETE CASCADE,
+                reporter_id INTEGER,
 
                 created_at TIMESTAMP DEFAULT NOW(),
                 updated_at TIMESTAMP DEFAULT NOW()
             )
         `);
 
-        console.log("Database connected and tables ready! Huurah!");
+        console.log("Database connected and tables ready!");
 
     } catch (err) {
-
         console.error("Error initializing database:", err);
         throw err;
     }

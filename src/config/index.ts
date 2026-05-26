@@ -9,7 +9,8 @@ const config = {
     connection_string: process.env.CONNECTION_STRING as string || '',
     port: process.env.PORT ||5000,
     secret: process.env.JWT_SECRET as string,
-    refresh_secret: process.env.JWT_REFRESH_SECRET as string
+    refresh_secret: process.env.JWT_REFRESH_SECRET as string,
+    bcrypt_rounds: Number(process.env.BCRYPT_ROUNDS)
 }
 
 

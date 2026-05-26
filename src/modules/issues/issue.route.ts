@@ -2,17 +2,17 @@
 
 import { Router } from "express";
 import { issueController } from "./issue.controller";
+import { USER_ROLE } from "../../types";
+import auth from "../../middleware/auth";
+
 const router =Router();
 
-router.get('/', issueController.getAllIssues);
+router.get('/',issueController.getAllIssues);
+router.get('/:id', issueController.getSingleIssue);
 
-
-// router.get('/:id', );
-
-
-// router.post('/',);
-// router.patch('/:id',);
-// router.delete('/:id',);
+router.post("/",  auth(USER_ROLE.contributor, USER_ROLE.maintainer),  issueController.createIssue);
+router.patch("/:id", auth(USER_ROLE.contributor, USER_ROLE.maintainer), issueController.updateIssue);
+router.delete("/:id",auth(USER_ROLE.maintainer), issueController.deleteIssue);
 
 
 

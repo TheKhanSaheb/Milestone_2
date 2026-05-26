@@ -1,9 +1,9 @@
-export const User_ROLE ={
+export const USER_ROLE ={
     contributor:'contributor',
     maintainer:'maintainer'
 } as const;
 
-export type Roles ="contributor" | "maintainer";
+export type ROLES ="contributor" | "maintainer";
 
 
 export const ISSUE_TYPE={
