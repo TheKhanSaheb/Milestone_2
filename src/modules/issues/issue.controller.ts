@@ -241,7 +241,7 @@ const updateIssue = async (
         sendResponse(res, {
           statusCode: 409,
           success: false,
-          message: "Cannot edit — issue is no longer open"
+          message: "Cannot edit — issue is no longer opened"
         });
 
         return;
