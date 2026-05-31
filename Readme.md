@@ -5,7 +5,7 @@ A collaborative platform for software teams to report bugs, suggest features, an
 ## 🔗 Links
 
 - **Live URL:** https://level2project-wine.vercel.app
-- **GitHub:** https://github.com/yourusername/devpulse
+- **GitHub:** https://github.com/TheKhanSaheb/Milestone_2
 
 ---
 
